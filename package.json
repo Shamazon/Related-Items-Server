@@ -1,6 +1,6 @@
 {
-  "name": "",
-  "version": "",
+  "name": "shamazon-related-products",
+  "version": "1.0.0",
   "description": "",
   "author": "",
   "license": "",
@@ -8,10 +8,22 @@
     "node": ">=6.13.0"
   },
   "scripts": {
+    "start": "node server/index.js",
+    "dev:start": "nodemon server/index.js",
+    "dev:react": "webpack -d --watch"
   },
   "dependencies": {
+    "express": "^4.16.3",
+    "react": "^16.3.1",
+    "react-dom": "^16.3.1"
   },
   "devDependencies": {
-    "eslint-config-hackreactor": "git://github.com/reactorcore/eslint-config-hackreactor"
+    "babel-cli": "^6.26.0",
+    "babel-loader": "^7.1.4",
+    "babel-preset-env": "^1.6.1",
+    "babel-preset-react": "^6.24.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "webpack": "^2.2.1",
+    "webpack-cli": "^2.0.14"
   }
 }
