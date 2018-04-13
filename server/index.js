@@ -1,5 +1,6 @@
 const express = require('express');
 const path = require('path');
+const Product = require('./db/Product');
 
 const app = express();
 
@@ -10,8 +11,15 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname, '../public/index.html'));
 });
 
-app.get('/related-products', (req, res) => {
-  res.json({});
+app.get('/products/:id/related', (req, res) => {
+  Product.findOne({ id: Number(req.params.id) }).then((result, err) => {
+    const category = result.category;
+    Product.find({ category }).then((results) => {
+      res.json(results);
+    });
+  }).catch((err) => {
+    console.log(err);
+  });
 });
 
 app.listen(app.get('port'), () => {
