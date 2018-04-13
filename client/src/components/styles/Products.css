@@ -1,0 +1,9 @@
+.relatedProducts {
+  border: 1px solid black;
+  display: inline-block;
+  height: 250px;
+  width: 100vw;
+  padding: 20px;
+  overflow: auto;
+  white-space: nowrap;
+}
