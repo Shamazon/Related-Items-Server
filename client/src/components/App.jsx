@@ -11,6 +11,8 @@ export default class App extends React.Component {
     super(props);
     this.state = {
       products: [],
+      showLeftButton: false,
+      showRightButton: true,
     };
   }
 
@@ -34,10 +36,30 @@ export default class App extends React.Component {
       });
   }
 
+  hideButton(btn) {
+    if (btn === 'right') {
+      this.setState({ showRightButton: false });
+    } else {
+      this.setState({ showLeftButton: false });
+    }
+  }
+
+  showButton(btn) {
+    if (btn === 'right') {
+      this.setState({ showRightButton: true });
+    } else {
+      this.setState({ showLeftButton: true });
+    }
+  }
+
   render() {
     return (
       <RelatedProducts 
         products={this.state.products}
+        showLeftButton={this.state.showLeftButton}
+        showRightButton={this.state.showRightButton}
+        showButton={this.showButton.bind(this)}
+        hideButton={this.hideButton.bind(this)}
       />
     );
   }
