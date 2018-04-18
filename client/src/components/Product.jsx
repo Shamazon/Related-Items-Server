@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Link } from 'react-router-3';
 
 import styles from './styles/Product.css';
 
@@ -13,9 +14,9 @@ export default (props) => {
 
       <span className={styles.price}>${product.price}</span>
 
-      <a href={`http://localhost/${product.id}`}>
+      <Link to={`/${product.id}`}>
         {product.name}
-      </a>
+      </Link>
 
     </div>
   );
