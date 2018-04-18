@@ -19,7 +19,8 @@
     "express": "^4.16.3",
     "mongoose": "^5.0.14",
     "react": "^16.3.1",
-    "react-dom": "^16.3.1"
+    "react-dom": "^16.3.1",
+    "react-router-3": "^3.2.2"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
