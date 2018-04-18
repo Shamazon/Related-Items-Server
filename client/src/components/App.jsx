@@ -21,8 +21,8 @@ export default class App extends React.Component {
     this.setRelatedProducts(productId);
   }
 
-  componentWillReceiveProps() {
-    this.setRelatedProducts(this.props.id);
+  componentWillReceiveProps(nextProps) {
+    this.setRelatedProducts(nextProps.id);
   }
 
   setRelatedProducts(productId) {
