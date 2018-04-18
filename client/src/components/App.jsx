@@ -22,7 +22,7 @@ export default class App extends React.Component {
   }
 
   componentWillReceiveProps() {
-    this.setRelatedProducts(props.id);
+    this.setRelatedProducts(this.props.id);
   }
 
   setRelatedProducts(productId) {
