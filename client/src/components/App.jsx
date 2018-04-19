@@ -23,7 +23,6 @@ export default class App extends React.Component {
 
   static getDerivedStateFromProps(nextProps, prevState) {
     const newState = Object.assign({}, prevState, nextProps);
-    console.log('getDerivedStateFromProps', newState.id);
     return newState;
   }
 
