@@ -21,19 +21,23 @@ export default class App extends React.Component {
     this.setRelatedProducts(productId);
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.setRelatedProducts(nextProps.id);
+  static getDerivedStateFromProps(nextProps, prevState) {
+    const newState = Object.assign({}, prevState, nextProps);
+    console.log('getDerivedStateFromProps', newState.id);
+    return newState;
   }
 
   setRelatedProducts(productId) {
-    axios.get(`http://localhost:9001/products/${productId}/related`)
+    if (productId !== this.state.loadedProductsId) {
+      axios.get(`http://localhost:9001/products/${productId}/related`)
       .then((data) => {
         const products = data.data;
-        this.setState({ products });
+        this.setState({ products, loadedProductsId: productId });
       })
       .catch((err) => {
         throw err;
       });
+    }
   }
 
   hideButton(btn) {
@@ -53,6 +57,7 @@ export default class App extends React.Component {
   }
 
   render() {
+    this.setRelatedProducts(this.props.id);
     return (
       <RelatedProducts 
         products={this.state.products}
@@ -65,4 +70,4 @@ export default class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+// ReactDOM.render(<App />, document.getElementById('app'));
