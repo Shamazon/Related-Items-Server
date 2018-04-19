@@ -17,8 +17,14 @@ app.get('/products/:id/related', (req, res) => {
   const id = Number(req.params.id);
   Product.findOne({ id }).then((result, err) => {
     const category = result.category;
-    Product.find({ category, id: { $ne: id} }).then((results) => {
-      res.json(results);
+    Product.find({ category, id: { $ne: id, $gt: id} }).then((results) => {
+      if (results.length < 10) {
+        Product.find({ category, id: { $ne: id, $lt: id }}).then((moreResults) => {
+          res.json(results.concat(moreResults));
+        });
+      } else {
+        res.json(results);
+      }
     });
   }).catch((err) => {
     console.log(err);
