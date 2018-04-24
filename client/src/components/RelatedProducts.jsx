@@ -51,6 +51,7 @@ export default (props) => {
         className={styles.goLeft}
         style={{display: props.showLeftButton ? 'block' : 'none'}}
         onClick={scrollLeft}
+        id="leftButton"
       >
         <i className={styles.leftArrow}>&nbsp;</i>
       </button>
@@ -58,6 +59,7 @@ export default (props) => {
         className={styles.goRight}
         style={{display: props.showRightButton ? 'block' : 'none'}}
         onClick={scrollRight}
+        id="rightButton"
       >
         <i className={styles.rightArrow}>&nbsp;</i>
       </button>
