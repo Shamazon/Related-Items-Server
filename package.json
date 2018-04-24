@@ -41,6 +41,12 @@
     "webpack-cli": "^2.0.14"
   },
   "jest": {
+    "setupFiles": [
+      "./__tests__/jestsetup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "jestsetup.js"
+    ],
     "moduleFileExtensions": [
       "js",
       "jsx"
